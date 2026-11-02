@@ -72,18 +72,27 @@ Intel(R) Platform License Manager Service Stopped  Automatic
 MapsBroker                                Stopped  Automatic
 sppsvc                                    Stopped  Automatic
 WbioSrvc                                  Stopped  Automatic
+
+
+------------- CPU Information -------------
+
+Name                                 Cores Logical Processors Max Clock (MHz) Load (%)
+----                                 ----- ------------------ --------------- --------
+12th Gen Intel(R) Core(TM) i5-12450H     8                 12            2000        2
 ~~~
 
 ## Технические решения
 
 Добавил немного своего, чуть больше информации чем было нужно в задании.
+- Добавил помимо Топ-5 процессов еще и общее количество памяти, свободную память и занятую память вместо с процентной оценкой
+- Добавил информацию о процессоре
 
 ## Структура проекта
 
 ~~~
 System-Engineer_Kaspersky/
 │
-├── Get-SystemReport.ps1      # Основной скрипт
+├── reports_script.ps1      # Основной скрипт
 ├── Reports/                 # Каталог для отчётов
 │   └── 2026-11-02_14-35-12_DESKTOP-GIJVLQL.txt
 └── README.md                 # Описание проекта
