@@ -16,6 +16,8 @@ $os_version_raw = $os_version_taken -split " "
 $os_version = ($os_version_raw | Select-Object -Skip 1) -join " "
 Add-Content $txtfile -Value "OS Version -> $os_version"
 
+#при помощи WmiObject можно вывести всю информацию которая нужна по заданию без циклов и тд (кроме процентов)
+#ну и через хэш таблицу (чтобы красиво было) создаем ключ-значение
 Get-WmiObject -Class Win32_LogicalDisk | Select-Object `
     @{Name="ID"; Expression={$_.DeviceID}},
     @{Name="Size (Gb)"; Expression={[math]::Round($_.Size / 1GB, 2)}},
