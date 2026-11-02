@@ -72,6 +72,13 @@ Intel(R) Platform License Manager Service Stopped  Automatic
 MapsBroker                                Stopped  Automatic
 sppsvc                                    Stopped  Automatic
 WbioSrvc                                  Stopped  Automatic
+
+
+------------- CPU Information -------------
+
+Name                                 Cores Logical Processors Max Clock (MHz) Load (%)
+----                                 ----- ------------------ --------------- --------
+12th Gen Intel(R) Core(TM) i5-12450H     8                 12            2000        2
 ~~~
 
 ## Технические решения
