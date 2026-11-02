@@ -52,3 +52,13 @@ Get-Service | Where-Object {$_.Status -EQ "Stopped"} | Where-Object {$_.StartTyp
     @{Name="Status"; Expression = {$_.Status}},
     @{Name="Start Type"; Expression = {$_.StartType}
     } | Format-Table -AutoSize | Out-File -FilePath $txtfile -Encoding utf8 -Append
+
+Add-Content $txtfile -Value "------------- CPU Information -------------"
+
+Get-CimInstance Win32_Processor | Select-Object `
+    @{Name="Name"; Expression={$_.Name.Trim()}},
+    @{Name="Cores"; Expression={$_.NumberOfCores}},
+    @{Name="Logical Processors"; Expression={$_.NumberOfLogicalProcessors}},
+    @{Name="Max Clock (MHz)"; Expression={$_.MaxClockSpeed}},
+    @{Name="Load (%)"; Expression={$_.LoadPercentage}
+    } | Format-Table -AutoSize | Out-File -FilePath $txtfile -Encoding utf8 -Append
