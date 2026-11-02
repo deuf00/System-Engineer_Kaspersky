@@ -1,0 +1,4 @@
+------------- PC Information -------------
+PC Name -> DESKTOP-GIJVLQL
+OS Version -> Windows 11 Pro
+Disk list -> \\DESKTOP-GIJVLQL\root\cimv2:Win32_LogicalDisk.DeviceID="C:" 

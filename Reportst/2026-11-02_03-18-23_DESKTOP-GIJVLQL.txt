@@ -1,0 +1,4 @@
+------------- PC Information -------------
+PC Name -> DESKTOP-GIJVLQL
+OS Version -> 10.0.22631
+Windows Version -> \\DESKTOP-GIJVLQL\root\cimv2:Win32_OperatingSystem=@
