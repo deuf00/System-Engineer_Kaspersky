@@ -7,7 +7,7 @@
 | Раздел | Содержимое |
 | --- | --- |
 | **PC Information** | Имя компьютера, версия ОС, список логических дисков с размером, свободным местом и процентом использования |
-| **RAM Information** | Топ-5 процессов по объёму занимаемой памяти, общая/свободная/используемая RAM в процентах |
+| **RAM Information** | Топ-5 процессов по объёму занимаемой памяти, WorkingSet64/PrivateMemorySize64 и общая/свободная/используемая RAM в процентах |
 | **Service Information** | Список остановленных служб с типом запуска `Automatic` |
 
 ## Формирование имени файла
@@ -27,7 +27,7 @@ yyyy-MM-dd_HH-mm-ss_<ComputerName>.txt
 ## Путь сохранения
 
 ~~~
-C:\Users\*User*\Desktop\System-Engineer_Kaspersky\Reportst\<имя_файла>.txt
+C:\Users\*User*\Desktop\System-Engineer_Kaspersky\Reports\<имя_файла>.txt
 ~~~
 
 ## Пример вывода отчёта
@@ -84,7 +84,7 @@ WbioSrvc                                  Stopped  Automatic
 System-Engineer_Kaspersky/
 │
 ├── Get-SystemReport.ps1      # Основной скрипт
-├── Reportst/                 # Каталог для отчётов
+├── Reports/                 # Каталог для отчётов
 │   └── 2026-11-02_14-35-12_DESKTOP-GIJVLQL.txt
 └── README.md                 # Описание проекта
 ~~~
