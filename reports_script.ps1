@@ -10,8 +10,18 @@ $txtfile = "C:\Users\Margarita\Desktop\System-Engineer_Kaspersky\Reportst\$name.
 Add-Content $txtfile -Value "------------- PC Information -------------"
 Add-Content $txtfile -Value "PC Name -> $env:computername"
 
+#На Российской версии винды записывание в файл слова на кириллице выдает такие символы: �, поэтому убрал первое слово
 $os_version_taken = (Get-WmiObject win32_operatingsystem).caption
 $os_version_raw = $os_version_taken -split " " 
 $os_version = ($os_version_raw | Select-Object -Skip 1) -join " "
-
 Add-Content $txtfile -Value "OS Version -> $os_version"
+
+Get-WmiObject -Class Win32_LogicalDisk | Select-Object `
+    @{Name="ID"; Expression={$_.DeviceID}},
+    @{Name="Size (Gb)"; Expression={[math]::Round($_.Size / 1GB, 2)}},
+    @{Name="Free Space (Gb)"; Expression={[math]::Round($_.FreeSpace / 1GB, 2)}},
+    @{Name="Free Space Percent"; Expression={
+        if ($_.Size -gt 0) { 
+            [math]::Round(($_.FreeSpace / $_.Size) * 100, 2) 
+        } else { 0 }
+    }} | Format-Table -AutoSize | Out-File -FilePath $txtfile -Encoding utf8 -Append
