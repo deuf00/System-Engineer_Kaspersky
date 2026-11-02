@@ -1,2 +1,92 @@
-# System-Engineer_Kaspersky
-Task for System Engineer Intern
+# System Information Report Script
+
+## Функциональность
+
+Скрипт выполняет последовательный сбор данных и записывает их в один текстовый файл, разбитый на логические блоки:
+
+| Раздел | Содержимое |
+| --- | --- |
+| **PC Information** | Имя компьютера, версия ОС, список логических дисков с размером, свободным местом и процентом использования |
+| **RAM Information** | Топ-5 процессов по объёму занимаемой памяти, общая/свободная/используемая RAM в процентах |
+| **Service Information** | Список остановленных служб с типом запуска `Automatic` |
+
+## Формирование имени файла
+
+Имя файла строится по шаблону:
+
+~~~
+yyyy-MM-dd_HH-mm-ss_<ComputerName>.txt
+~~~
+
+Пример:
+
+~~~
+2026-11-02_14-35-12_DESKTOP-GIJVLQL.txt
+~~~
+
+## Путь сохранения
+
+~~~
+C:\Users\*User*\Desktop\System-Engineer_Kaspersky\Reportst\<имя_файла>.txt
+~~~
+
+## Пример вывода отчёта
+
+~~~text
+------------- PC Information -------------
+PC Name -> DESKTOP-GIJVLQL
+OS Version -> Windows 11 Pro
+
+ID Size (Gb) Free Space (Gb) Free Space Percent
+-- --------- --------------- ------------------
+C:    475,92           17,94               3,77
+
+
+------------- RAM Information -------------
+
+ProcessName        Memory(MB) Private Memory(MB)
+-----------        ---------- ------------------
+Memory Compression      708,6               1,73
+Code                   398,07             436,91
+SearchHost             316,45             223,41
+MsMpEng                279,71             485,05
+chrome                 258,16             201,57
+
+
+
+Total (GB) Free (GB) Used (GB) Percent Used (%)
+---------- --------- --------- ----------------
+     15,73      7,69      8,04            51,11
+
+
+------------- Service Information -------------
+
+Service                                    Status Start Type
+-------                                    ------ ----------
+DoSvc                                     Stopped  Automatic
+edgeupdate                                Stopped  Automatic
+GoogleUpdaterInternalService157.0.8089.0  Stopped  Automatic
+GoogleUpdaterService157.0.8089.0          Stopped  Automatic
+gpsvc                                     Stopped  Automatic
+Intel(R) Platform License Manager Service Stopped  Automatic
+MapsBroker                                Stopped  Automatic
+sppsvc                                    Stopped  Automatic
+WbioSrvc                                  Stopped  Automatic
+~~~
+
+## Технические решения
+
+Добавил немного своего, чуть больше информации чем было нужно в задании.
+
+## Структура проекта
+
+~~~
+System-Engineer_Kaspersky/
+│
+├── Get-SystemReport.ps1      # Основной скрипт
+├── Reportst/                 # Каталог для отчётов
+│   └── 2026-11-02_14-35-12_DESKTOP-A7B3C9D.txt
+└── README.md                 # Описание проекта
+~~~
+
+Скрипт разработан в рамках тестового задания на позицию System Engineer.
