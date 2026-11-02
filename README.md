@@ -83,7 +83,7 @@ WbioSrvc                                  Stopped  Automatic
 ~~~
 System-Engineer_Kaspersky/
 │
-├── Get-SystemReport.ps1      # Основной скрипт
+├── reports_script.ps1      # Основной скрипт
 ├── Reports/                 # Каталог для отчётов
 │   └── 2026-11-02_14-35-12_DESKTOP-GIJVLQL.txt
 └── README.md                 # Описание проекта
