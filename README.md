@@ -88,4 +88,4 @@ System-Engineer_Kaspersky/
 │   └── 2026-11-02_14-35-12_DESKTOP-GIJVLQL.txt
 └── README.md                 # Описание проекта
 ~~~
-.
+
