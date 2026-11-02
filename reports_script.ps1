@@ -3,7 +3,7 @@
 $today_date = (Get-Date).ToString("yyyy-MM-dd_HH-mm-ss")
 $computer = $env:computername
 $name = "${today_date}_${computer}"
-$txtfile = "C:\Users\Margarita\Desktop\System-Engineer_Kaspersky\Reportst\$name.txt"
+$txtfile = "C:\Users\Margarita\Desktop\System-Engineer_Kaspersky\Reports\$name.txt"
 
 #------------- Запись в файл информации о системе ( 1 и 2 пункты) -------------
 
