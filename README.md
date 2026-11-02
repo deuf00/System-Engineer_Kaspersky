@@ -85,8 +85,7 @@ System-Engineer_Kaspersky/
 │
 ├── Get-SystemReport.ps1      # Основной скрипт
 ├── Reportst/                 # Каталог для отчётов
-│   └── 2026-11-02_14-35-12_DESKTOP-A7B3C9D.txt
+│   └── 2026-11-02_14-35-12_DESKTOP-GIJVLQL.txt
 └── README.md                 # Описание проекта
 ~~~
-
-Скрипт разработан в рамках тестового задания на позицию System Engineer.
+.
