@@ -1,0 +1,25 @@
+------------- PC Information -------------
+PC Name -> DESKTOP-GIJVLQL
+OS Version -> Windows 11 Pro
+
+ID Size (Gb) Free Space (Gb) Free Space Percent
+-- --------- --------------- ------------------
+C:    475,92           17,95               3,77
+
+
+
+ProcessName        Memory(MB) Private Memory(MB)
+-----------        ---------- ------------------
+Memory Compression      632,3               1,69
+Code                   439,32              444,6
+SearchHost             311,04             217,39
+MsMpEng                   288             485,02
+Code                   263,36             260,96
+
+
+
+Total Free Used PercentUsed
+----- ---- ---- -----------
+15,73 7,56    0            
+
+

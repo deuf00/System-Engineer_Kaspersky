@@ -28,15 +28,27 @@ Get-WmiObject -Class Win32_LogicalDisk | Select-Object `
         } else { 0 }
     }} | Format-Table -AutoSize | Out-File -FilePath $txtfile -Encoding utf8 -Append
 
+Add-Content $txtfile -Value "------------- RAM Information -------------"
+
+#Это для задания 1.3
 Get-Process | Sort-Object WorkingSet64 -Descending | Select-Object `
     -First 5 ProcessName, 
     @{Name="Memory(MB)";Expression={[math]::Round($_.WorkingSet64/1MB,2)}},
     @{Name="Private Memory(MB)";Expression={[math]::Round($_.PrivateMemorySize64/1MB,2)
     }} | Format-Table -AutoSize | Out-File -FilePath $txtfile -Encoding utf8 -Append
 
-Get-Process | Measure-Object PrivateMemorySize64, WorkingSet64 -Sum | Select-Object `
-    @{Name="Property"; Expression={$_.Property}},
-    @{Name="Count"; Expression={$_.Count}},
-    @{Name="Sum"; Expression={[math]::Round($_.Sum/1MB,2)
+#это от себя 
+Get-CimInstance Win32_OperatingSystem | Select-Object `
+    @{Name="Total (GB)"; Expression={[math]::Round($_.TotalVisibleMemorySize/1MB, 2)}},
+    @{Name="Free (GB)"; Expression={[math]::Round($_.FreePhysicalMemory/1MB, 2)}},
+    @{Name="Used (GB)"; Expression={([math]::Round($_.TotalVisibleMemorySize/1MB, 2) - [math]::Round($_.FreePhysicalMemory/1MB, 2))}},
+    @{Name="Percent Used (%)"; Expression={[math]::Round((([math]::Round($_.TotalVisibleMemorySize/1MB, 2) - [math]::Round($_.FreePhysicalMemory/1MB, 2)) / [math]::Round($_.TotalVisibleMemorySize/1MB, 2))*100, 2)
     }} | Format-Table -AutoSize | Out-File -FilePath $txtfile -Encoding utf8 -Append
 
+Add-Content $txtfile -Value "------------- Service Information -------------"
+
+Get-Service | Where-Object {$_.Status -EQ "Stopped"} | Where-Object {$_.StartType -EQ "Automatic"} | Select-Object `
+    @{Name="Service"; Expression = {$_.ServiceName}},
+    @{Name="Status"; Expression = {$_.Status}},
+    @{Name="Start Type"; Expression = {$_.StartType}
+    } | Format-Table -AutoSize | Out-File -FilePath $txtfile -Encoding utf8 -Append

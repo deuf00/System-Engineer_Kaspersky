@@ -1,0 +1,40 @@
+------------- PC Information -------------
+PC Name -> DESKTOP-GIJVLQL
+OS Version -> Windows 11 Pro
+
+ID Size (Gb) Free Space (Gb) Free Space Percent
+-- --------- --------------- ------------------
+C:    475,92           17,94               3,77
+
+
+------------- RAM Information -------------
+
+ProcessName        Memory(MB) Private Memory(MB)
+-----------        ---------- ------------------
+Memory Compression     709,47               1,73
+Code                   422,87              463,3
+SearchHost             316,45             223,41
+MsMpEng                273,52             483,57
+Code                   265,05             276,89
+
+
+
+Total (GB) Free (GB) Used (GB) Percent Used (%)
+---------- --------- --------- ----------------
+     15,73      7,95      7,78            49,46
+
+
+------------- Process Information -------------
+
+Service                                    Status Start Type
+-------                                    ------ ----------
+DoSvc                                     Stopped  Automatic
+edgeupdate                                Stopped  Automatic
+GoogleUpdaterInternalService157.0.8089.0  Stopped  Automatic
+GoogleUpdaterService157.0.8089.0          Stopped  Automatic
+Intel(R) Platform License Manager Service Stopped  Automatic
+MapsBroker                                Stopped  Automatic
+sppsvc                                    Stopped  Automatic
+WbioSrvc                                  Stopped  Automatic
+
+
