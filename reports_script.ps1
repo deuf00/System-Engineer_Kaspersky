@@ -28,7 +28,15 @@ Get-WmiObject -Class Win32_LogicalDisk | Select-Object `
         } else { 0 }
     }} | Format-Table -AutoSize | Out-File -FilePath $txtfile -Encoding utf8 -Append
 
-Add-Content $txtfile -Value "------------- RAM Information -------------"
-
 Get-Process | Sort-Object WorkingSet64 -Descending | Select-Object `
-    -First 5 ProcessName, WorkingSet64, PrivateMemorySize64 | Format-Table -AutoSize | Out-File -FilePath $txtfile -Encoding utf8 -Append
+    -First 5 ProcessName, 
+    @{Name="Memory(MB)";Expression={[math]::Round($_.WorkingSet64/1MB,2)}},
+    @{Name="Private Memory(MB)";Expression={[math]::Round($_.PrivateMemorySize64/1MB,2)
+    }} | Format-Table -AutoSize | Out-File -FilePath $txtfile -Encoding utf8 -Append
+
+Get-Process | Measure-Object PrivateMemorySize64, WorkingSet64 -Sum | Select-Object `
+    @{Name="Property"; Expression={$_.Property}},
+    @{Name="Count"; Expression={$_.Count}},
+    @{Name="Sum"; Expression={[math]::Round($_.Sum/1MB,2)
+    }} | Format-Table -AutoSize | Out-File -FilePath $txtfile -Encoding utf8 -Append
+
